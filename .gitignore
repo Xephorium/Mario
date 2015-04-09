@@ -6,6 +6,6 @@
 ## Compiled Output ##
 *.class
  
-## IntelliJ IDEA ##
+## IntelliJ IDEA Files ##
 *.iml
 .idea
