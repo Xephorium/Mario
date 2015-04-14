@@ -11,6 +11,7 @@
 */
 package com.xephorium.mario;
 import java.util.Scanner;
+import java.io.*;
 
 public final class Utilities
 {
@@ -21,6 +22,7 @@ public final class Utilities
 
     /*--- Static Methods ---*/
 
+    // Output A Generic Greeting
     public static void defaultGreeting()
     {
         System.out.println("##############");
@@ -28,6 +30,8 @@ public final class Utilities
         System.out.println("##############\n");
     }
 
+    // Output A Program-Specific Greeting
+    // Parameter: (String "Program Name!")
     public static void customGreeting(String s)
     {
         StringBuilder output = new StringBuilder();
@@ -46,6 +50,10 @@ public final class Utilities
         System.out.println(output);
     }
 
+    // Input User Integer; Check for Valid Data
+    // Parameters: (int <lowest valid #>, int <highest valid #>,
+    //             String "prompt: ")
+    // Returned:   int <user number>
     public static int integerSentinel(int x, int y, String s)
     {
         Scanner reader = new Scanner(System.in);
@@ -62,5 +70,25 @@ public final class Utilities
         }
 
         return input;
+    }
+
+    // Output String to File
+    // Parameters: (String "File_Name", String "Data")
+    // Returned:   boolean <operation success>
+    public static boolean writeToFile(String file, String data)
+    {
+        File output = new File(file);
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output)))
+        {
+            writer.write(data);
+            writer.flush();
+        }
+        catch(IOException e)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

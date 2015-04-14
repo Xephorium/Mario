@@ -5,6 +5,7 @@
 
 ## Compiled Output ##
 *.class
+output.txt
  
 ## IntelliJ IDEA Files ##
 *.iml
