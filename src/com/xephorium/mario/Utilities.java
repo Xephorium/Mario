@@ -71,24 +71,4 @@ public final class Utilities
 
         return input;
     }
-
-    // Output String to File
-    // Parameters: (String "File_Name", String "Data")
-    // Returned:   boolean <operation success>
-    public static boolean writeToFile(String file, String data)
-    {
-        File output = new File(file);
-
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(output)))
-        {
-            writer.write(data);
-            writer.flush();
-        }
-        catch(IOException e)
-        {
-            return false;
-        }
-
-        return true;
-    }
 }

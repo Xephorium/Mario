@@ -11,8 +11,7 @@
 */
 package com.xephorium.mario;
 import com.xephorium.mario.environment.*;
-
-import java.io.*;
+import com.xephorium.mario.output.*;
 
 public class Mario
 {
@@ -21,6 +20,7 @@ public class Mario
         // Variable Declaration
         int pyrHeight;
         int outputMethod;
+        Printer print = new PrintToConsole();
 
         // Greet User & Input Pyramid Height
         Utilities.customGreeting("Pyramid Generator!");
@@ -34,18 +34,8 @@ public class Mario
         outputMethod = Utilities.integerSentinel(1, 2, "Selection: ");
 
         // Print Pyramid
-        switch (outputMethod)
-        {
-            case 1:
-                System.out.println("");
-                System.out.print(pyr1.toString());
-                break;
-
-            case 2:
-                if(!Utilities.writeToFile("output.txt", pyr1.toString()))
-                    System.out.println("File writing failed.");
-                break;
-        }
-
+        if(outputMethod == 2)
+            print = new PrintToFile();
+        print.print(pyr1.toString());
     }
 }
