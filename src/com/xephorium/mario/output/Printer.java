@@ -6,12 +6,13 @@
 
     This class represents a generic object of type Printer
   that can be polymorphically defined in a number of ways
-  by the user at runtime.
+  to print Pyramids at runtime.
 
 */
 package com.xephorium.mario.output;
+import com.xephorium.mario.environment.*;
 
 public interface Printer
 {
-    public void print(String output);
+    public void print(Pyramid p);
 }

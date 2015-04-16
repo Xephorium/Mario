@@ -9,6 +9,7 @@
 
 */
 package com.xephorium.mario.output;
+import com.xephorium.mario.environment.*;
 
 public class PrintToConsole implements Printer
 {
@@ -19,10 +20,10 @@ public class PrintToConsole implements Printer
 
     /*--- Methods ---*/
 
-    // Prints Output to Console
-    // Parameter: (String <output data>)
-    public void print(String output)
+    // Prints Pyramid to Console
+    // Parameter: (Pyramid <pyramid obj>)
+    public void print(Pyramid p)
     {
-        System.out.print(output);
+        System.out.print(p.toString());
     }
 }

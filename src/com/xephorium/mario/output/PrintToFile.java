@@ -10,6 +10,7 @@
 */
 package com.xephorium.mario.output;
 import java.io.*;
+import com.xephorium.mario.environment.*;
 
 public class PrintToFile implements Printer
 {
@@ -50,15 +51,15 @@ public class PrintToFile implements Printer
         return fileName;
     }
 
-    // Prints Output to Text File
-    // Parameter: (String <output data>)
-    public void print(String output)
+    // Prints Pyramid to Text File
+    // Parameter: (Pyramid <pyramid obj>)
+    public void print(Pyramid p)
     {
         File file = new File(fileName);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file)))
         {
-            writer.write(output);
+            writer.write(p.toString());
             writer.flush();
         }
         catch(IOException e)

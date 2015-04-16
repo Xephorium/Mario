@@ -36,6 +36,6 @@ public class Mario
         // Print Pyramid
         if(outputMethod == 2)
             print = new PrintToFile();
-        print.print(pyr1.toString());
+        print.print(pyr1);
     }
 }
