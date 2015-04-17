@@ -5,8 +5,9 @@
   Problem Set #2
 
     Employed to hide instantiation of Pyramid classes from main,
-  this class creates and returns a specified Printer object to
-  the calling code.
+  this class creates and returns a specified Pyramid object to
+  the calling code. As of v0.4 (pset4), it is coded as a
+  Singleton class.
 
     Note: Since, at this point in the Mario application's
   development, there is only one intended function for the
@@ -19,17 +20,35 @@ package com.xephorium.mario.environment;
 
 public class PyramidFactory
 {
-    /*--- Static Methods ---*/
+    /*--- Field ---*/
+
+    private static PyramidFactory factory = null;
+
+
+    /*--- Constructor ---*/
+
+    private PyramidFactory() {}
+
+
+    /*--- Methods ---*/
+
+    // Return Reference to Static PyramidFactory Object
+    public static PyramidFactory getInstance()
+    {
+        if(factory == null)
+            factory = new PyramidFactory();
+        return factory;
+    }
 
     // Return New Pyramid Object
-    public static Pyramid newPyramid()
+    public Pyramid newPyramid()
     {
         return new Pyramid();
     }
 
     // Return New Pyramid Object
     // Parameter: (int <height>)
-    public static Pyramid newPyramidHeight(int height)
+    public Pyramid newPyramidHeight(int height)
     {
         return new Pyramid(height);
     }

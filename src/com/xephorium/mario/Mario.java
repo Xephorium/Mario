@@ -20,14 +20,14 @@ public class Mario
         // Variable Declaration
         int pyrHeight;
         int outputMethod;
-        Printer print = PrintFactory.toConsole();
+        Printer print = PrintFactory.getInstance().toConsole();
 
         // Greet User & Input Pyramid Height
         Utilities.customGreeting("Pyramid Generator!");
         pyrHeight = Utilities.integerSentinel(0, 23, "Enter your pyramid height: ");
 
         // Create Pyramid
-        Pyramid pyr1 = PyramidFactory.newPyramidHeight(pyrHeight);
+        Pyramid pyr1 = PyramidFactory.getInstance().newPyramidHeight(pyrHeight);
 
         // Prompt User for Output Method
         System.out.println("Would you like to print to the console (1) or a file (2)?");
@@ -35,7 +35,7 @@ public class Mario
 
         // Print Pyramid
         if(outputMethod == 2)
-            print = PrintFactory.toFile();
+            print = PrintFactory.getInstance().toFile();
         print.print(pyr1);
     }
 }

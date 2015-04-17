@@ -8,6 +8,12 @@
   that can be cleanly implemented in the main class of the
   application Mario.
 
+    Note: As this class falls well outside the object oriented
+  organization structure of the rest of the program and will
+  never need to be extended, I've opted not to make it a
+  Singleton along with PrintFactory and PyramidFactory in v0.4
+  (pset 4).
+
 */
 package com.xephorium.mario;
 import java.util.Scanner;
