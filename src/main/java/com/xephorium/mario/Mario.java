@@ -12,15 +12,48 @@
 package com.xephorium.mario;
 import com.xephorium.mario.environment.*;
 import com.xephorium.mario.output.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Mario
 {
+    /*--- Field ---*/
+
+    @Autowired
+    private PrintFactory printFactory;
+
+
+    /*--- Constructor ---*/
+    // Not neccessary with printFactory Autowired
+    // public Mario(PrintFactory pF)
+    //{
+    //    printFactory = pF;
+    //}
+
+
+    /*--- Methods ---*/
+
     public static void main(String[] args)
+    {
+        // Not necessary with Mario AutoWired
+        // Mario app1 = new Mario(PrintFactory.getInstance());
+        //app1.start();
+
+        ApplicationContext context =
+                new ClassPathXmlApplicationContext("application.xml");
+        Mario app1 = (Mario) context.getBean("mario");
+        app1.start();
+    }
+
+    public void start()
     {
         // Variable Declaration
         int pyrHeight;
         int outputMethod;
-        Printer print = PrintFactory.getInstance().toConsole();
+        Printer print = printFactory.toConsole();
 
         // Greet User & Input Pyramid Height
         Utilities.customGreeting("Pyramid Generator!");
@@ -35,7 +68,7 @@ public class Mario
 
         // Print Pyramid
         if(outputMethod == 2)
-            print = PrintFactory.getInstance().toFile();
+            print = printFactory.toFile();
         print.print(pyr1);
     }
 }

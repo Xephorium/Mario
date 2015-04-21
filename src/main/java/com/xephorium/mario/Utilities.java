@@ -17,7 +17,6 @@
 */
 package com.xephorium.mario;
 import java.util.Scanner;
-import java.io.*;
 
 public final class Utilities
 {
