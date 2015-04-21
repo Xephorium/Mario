@@ -7,6 +7,9 @@
     Output a mario-style half pyramid of user specified height
   to either the console or a text file. Validate user integer
   with a sentinel (0-23 inclusive).
+    As of Problem Set #4, this class includes Spring Framework
+  annotations to inject instantiated objects where it results
+  in cleaner code.
 
 */
 package com.xephorium.mario;
@@ -17,34 +20,27 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
-@Component
+// Tell Spring Framework to automatically instantiate Mario
+// object of name "marioObject" in the context to be fetched
+// elsewhere in the code.
+@Component (value = "marioObject")
 public class Mario
 {
     /*--- Field ---*/
 
+    // Tell Spring Framework to fetch PrintFactory object
+    // named "printFactory".
     @Autowired
     private PrintFactory printFactory;
-
-
-    /*--- Constructor ---*/
-    // Not neccessary with printFactory Autowired
-    // public Mario(PrintFactory pF)
-    //{
-    //    printFactory = pF;
-    //}
 
 
     /*--- Methods ---*/
 
     public static void main(String[] args)
     {
-        // Not necessary with Mario AutoWired
-        // Mario app1 = new Mario(PrintFactory.getInstance());
-        //app1.start();
-
         ApplicationContext context =
                 new ClassPathXmlApplicationContext("application.xml");
-        Mario app1 = (Mario) context.getBean("mario");
+        Mario app1 = (Mario) context.getBean("marioObject");
         app1.start();
     }
 

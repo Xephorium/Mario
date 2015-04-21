@@ -13,7 +13,10 @@
 package com.xephorium.mario.output;
 import org.springframework.stereotype.Component;
 
-@Component
+// Tell Spring Framework to automatically instantiate PrintFactory
+// object of name "printFactory" in the context to be fetched
+// elsewhere in the code.
+@Component (value = "printFactory")
 public class PrintFactory
 {
     /*--- Fields ---*/
