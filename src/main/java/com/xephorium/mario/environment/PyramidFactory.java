@@ -12,7 +12,8 @@
     Note: Since, at this point in the Mario application's
   development, there is only one intended function for the
   Pyramid class, the case could be made that this file serves
-  no practical purpose beyond Factory Design demonstration.
+  no practical purpose beyond Factory Design and Singleton
+  Class demonstration.
     For a better example, see "PrintFactory.java".
 
 */

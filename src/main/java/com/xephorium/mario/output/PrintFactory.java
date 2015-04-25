@@ -6,8 +6,10 @@
 
     Employed to hide instantiation of specific PrintType classes
   from main, this class creates and returns a specified Printer
-  object to the calling code. As of v0.4 (pset4), it is coded as
-  a Singleton class.
+  object to the calling code. As of v0.4 (pset4), it no longer
+  needs to be coded as a Singleton class since the default
+  behavior of Spring is to instantiate only one object
+  of classes annotated by @Component in the context.
 
 */
 package com.xephorium.mario.output;
@@ -19,25 +21,7 @@ import org.springframework.stereotype.Component;
 @Component (value = "printFactory")
 public class PrintFactory
 {
-    /*--- Fields ---*/
-
-    private static PrintFactory factory = null;
-
-
-    /*--- Constructor ---*/
-
-    private PrintFactory() {}
-
-
     /*--- Methods ---*/
-
-    // Return Reference to Static PrintFactory Object
-    public static PrintFactory getInstance()
-    {
-        if(factory == null)
-            factory = new PrintFactory();
-        return factory;
-    }
 
     // Return New PrintToConsole Object
     public Printer toConsole()
